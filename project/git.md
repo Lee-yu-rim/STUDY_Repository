@@ -8,8 +8,10 @@ git branch 사용하기
 <br>
 
 2. 생성한 branch에 내 프로젝트 커밋 하기
-> - 스프링에서 git repositories > 3번째 아이콘 클릭(clone) > branch repository 주소 입력
-> - 프로젝트 오른쪽 클릭 > share project > 나의 branch 선택하여 commit&push 실행
+> - 스프링에서 git 폴더 space 열기 
+> -  window > showView > others... > git repositories > 3번째 아이콘 클릭(clone) > branch repository 주소 입력
+> - 생성된 git 폴더 오른쪽 클릭 > import Maven... 선택 후 내 branch 선택
+> - 프로젝트 오른쪽 클릭 > share project > commit&push 실행
 
 <br>
 
@@ -19,6 +21,8 @@ git branch 사용하기
 <br>
 
 4. 내가 생성한 branch 를 main에 병합하기
-> - 깃허브에서 내 branch 선택 > Contribute 에서 open pull request 를 선택하여 진행하면 main branch에 merge 가능
+> - 깃허브에서 내 branch 선택 > Contribute 에서 open pull request 선택
+> - commit한 내용을 main branch에 merge 요청 가능
 
 ***
+

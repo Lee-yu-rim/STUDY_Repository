@@ -50,14 +50,40 @@
 - form 태그에 name 과 id 속성 있는지 확인
 - controller 에 return 값 성공 시와 실패 시 각각 구분 잘 되어있는지 확인
 - controller 변수명 겹치게 쓰지 않도록 주의하기
+- https://weekbook.tistory.com/74 페이지 참고해서 따라하기
 
 ***
 <br>
 
 <mark>ajax 비동기 통신 이용 시 값 인식 에러</mark>
+---
 
 > 오류 상황
 - 회원 가입 페이지에서 아이디 중복 확인 버튼 누를 시 DB에 있는 데이터 임에도 사용이 가능한 아이디라고 뜨는 상황
 
 > 해결 방법
 - ajax에서 dateType : json 추가해주기
+
+***
+<br>
+
+<mark>ajax 통신에서 값 여러개 넘길 시 500 에러</mark>
+---
+
+> 오류 상황
+- controller에서 RequestParam 어노테이션을 사용하여 여러개의 값을 넘길 경우 "org.apache.ibatis.binding.BindingException: Parameter 'a_apy_position' not found. Available parameters are [0, 1, 2, 3, param3, param4, param1, param2]" 라고 뜨면서 페이지 500 에러 발생
+
+> 해결 방법
+- 값을 한번에 VO 클래스로 생성 후 넘겨주면 오류 해결
+
+***
+<br>
+
+<mark>ajax 로 불러온 값 화면에 출력 안될 때</mark>
+---
+
+> 오류 상황
+- ajax 통신으로 값을 불러와서 화면에 출력하려고 하는데 alert 창은 뜨고 화면 출력은 안됨
+
+> 해결 방법
+- 불러오려는 값의 속성값을 id 값 말고 class 값으로 바꿔서 불러와보기

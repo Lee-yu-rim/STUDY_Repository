@@ -1,24 +1,38 @@
 프로젝트 기획안
 ===
-- 작성일 : 2023.02.20
+- 프로젝트명 : Anymore
+- 투입 인원 : 5명
+- 기간 : 2023.01.16 ~ 2023.02.15 (1개월)
 - 작성자 : 이유림
 
 <br>
 
-프로젝트 명
+프로젝트 일정 수립
 ===
-- Anymore Project
+1. 팀원 개개인의 아이디어를 도출하여 주제 선정 및 프로젝트 기획 및 총괄
+
+2. 프로젝트 스토리 보드 및 사이트맵 등 구상안 설계
+
+3. 프로젝트 기능 설계 및 데이터베이스 구현
+
+4. 개인의 역량에 맞춘 기능 역할 분배
+
+5. 기능 구현 및 노션, 깃허브 등의 툴을 이용한 협업 관리
+
+6. 전체적인 에러 수정 및 프로젝트 마무리
+
+7. 프로젝트 ppt 작성 및 최종 발표
 
 <br>
 
-기획의도
+기획 의도
 ===
 
 - 단순 보호소 사이트가 아닌 커뮤니티나 쇼핑몰, 예약과 같은 다양한 서비스를 한 곳에서 이용할 수 있는 사이트를 구현하여, 사용자의 입장에서 편리한 기능을 제공할 수 있는 홈페이지를 개발하고 싶었습니다. 
 
 <br>
 
-홈페이지 설명
+프로젝트 소개
 ===
 - 다양한 유기동물을 구조하여 보호하는 보호소 페이지로, 회원제 게시판을 통해 유기 동물을 분양할 수 있도록 하는 역할이 주된 페이지입니다. 더불어 입양 후기나 반려동물 용품 중고거래 등의 회원간의 다양한 의견을 주고 받을 수 있는 커뮤니티와 보호소 내 자체 제작 상품을 판매하는 쇼핑몰, 보호소 방문을 위한 예약 시스템 등의 부가적인 시스템이 결합된 홈페이지입니다.
 
@@ -63,34 +77,65 @@
 
 <br>
 
-프로젝트 내 담당 기능
+주요 역할 및 담당 기능
 ===
 
-- 회원 가입
+[Back-End]
 
+1. 회원 가입 및 로그인 구현
+- 일반 회원과 관리자 계정을 구분하여 로그인 후 마이페이지가 다르게 나오도록 출력
 - 아이디 중복 체크 시스템
+- 비밀번호, 이메일 주소, 핸드폰 번호에 정규식 이용
+- 유효성 검증 구현
+- 다음 주소검색 API를 이용한 주소검색 기능 구현
+- 카카오 API를 이용한 소셜 회원가입 및 로그인 구현
+- 비밀번호 찾기 시 자바 mail 라이브러리를 이용한 임시 비밀번호 이메일 발송 기능 구현
 
-- 다음 주소 검색 API를 이용한 주소 검색 시스템
 
-- 회원 로그인
+<br>
 
-- 카카오 API를 이용한 회원가입 및 로그인
+2. 메인페이지 공지창 팝업
+- 쿠키 설정 및 생성을 통한 팝업창 출력
 
-- 로그아웃
+<br>
 
-- 비밀번호 찾기 이메일 발송
 
-- 메인페이지 공지창 팝업 시스템
+3. 지도 검색 및 위치 표시
+- 카카오 지도 API를 이용한 위치 표시 시스템
+- 키워드 검색을 통한 근처 동물병원 검색 및 위치 표시 시스템
 
-- 카카오 API를 이용한 지도 검색 및 위치 표시 시스템
+<br>
 
-- 상품 목록 및 상세보기 구성
+4. 쇼핑몰
+- 상품 리스트 및 상품 이미지 출력
+- 장바구니 시스템 구현
 
-- 장바구니 시스템
+<br>
 
-- 마이페이지 구매내역 구성
+5. 회원 마이페이지
+- 상품 결제 시 구매내역 리스트 출력
+- 페이지네이션 기능
+- 기간을 통한 검색 조회 구현
 
-- 보호소 소개 페이지 구성
+<br>
+
+[Front-End]
+
+- 담당 기능 view 페이지 구상 및 HTML/CSS 를 이용한 디자인
+
+- 보호소 소개 view 페이지 구상 및 디자인
+
+
+<br>
+
+개발 도구
+===
+- 협업 : Notion / github / google-sheet
+- DB 설계 : Oracle SQL Developer / erdcloud
+- 웹 서버 : Apache Tomcat 9.0
+- 언어 : JAVA / JavaScript / CSS / HTML / BootStrap
+- 라이브러리 : jQuery / Gson(JSON) / MyBatis / Javax Mail / Ajax
+- 프레임워크 : Spring
 
 <br>
 
@@ -109,315 +154,3 @@
 
 <br>
 
-<hr>
-
-<br>
-
-DB 정보
----
-
-```sql
-CREATE TABLE reservation (
-   num   number(10,0)      NOT NULL,
-   title   varchar2(50)      NOT NULL,
-   sex   varchar2(10)      NULL,
-   people_cnt   varchar2(30)      NOT NULL,
-   visiter_name   varchar2(20)      NOT NULL,
-   phone   varchar2(30)      NOT NULL,
-   visit_day   date      NOT NULL,
-   reser_time   varchar2(30)      NOT NULL,
-   visit_reason   varchar2(2000)      NULL,
-   id   varchar2(20)      NULL,
-   visit_identify   number(10,0)      NOT NULL
-);
-
-CREATE TABLE zzim (
-	id	varchar2(20)		NOT NULL,
-	board_num	number(10,0)		NULL
-);
-
-CREATE TABLE free_board_reply (
-	rno	number(10,0)		NOT NULL,
-	reply	varchar2(500)		NOT NULL,
-	bno	number(10,0)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	replydate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL
-);
-
-CREATE TABLE adopt_reservation (
-	adoptnum	number(10,0)		NOT NULL,
-	name	varchar2(50)		NOT NULL,
-	phone	varchar2(20)		NOT NULL,
-	birthday_date	varchar2(200)	NOT NULL,
-	address	varchar2(200)		NOT NULL,
-	board_num	number(10,0)		NULL,
-	servey1	varchar2(500)		NOT NULL,
-	servey2	varchar2(500)		NOT NULL,
-	servey3	varchar2(500)		NOT NULL,
-	servey4	varchar2(500)		NOT NULL,
-	servey5	varchar2(500)		NOT NULL,
-	servey6	varchar2(500)		NOT NULL,
-	servey7	varchar2(500)		NOT NULL,
-	servey8	varchar2(500)		NOT NULL,
-    reg_date date default sysdate not null,
-    id	varchar2(20)		NOT NULL
-);
-
-CREATE TABLE free_board (
-   bno   number(10,0)      NOT NULL,
-   title   varchar2(50)      NOT NULL,
-   content   varchar2(2000)      NOT NULL,
-   regdate   date   DEFAULT sysdate   NULL,
-   updatedate   date   DEFAULT sysdate   NULL,
-   reply_cnt   number(10,0)      NULL,
-   visit_cnt   number(10,0)      NULL,
-   field   varchar2(20)      NOT NULL,
-   id   varchar2(20)      NOT NULL
-);
-
-CREATE TABLE anymore_product (
-	product_num	number(10,0)		NOT NULL,
-	price	varchar2(50)		NOT NULL,
-	discribe	varchar2(2000)		NOT NULL,
-    p_amount number(10,0) NULL,
-	product_name	varchar2(500)		NOT NULL,
-	product_regdate	date	DEFAULT sysdate	NOT NULL,
-	product_content	varchar(2000)		NOT NULL
-);
-
-CREATE TABLE product_perchase (
-	perchase_num	number(10,0)		NOT NULL,
-	name	varchar2(50)		NOT NULL,
-	perchased_product	varchar2(500)		NOT NULL,
-	all_price	varchar2(500)		NOT NULL,
-	ordered_date	date	DEFAULT sysdate 	NOT NULL,
-	delivery_status	varchar2(50)		NOT NULL,
-	product_num	number(10,0)		 NULL,
-	payment	varchar2(50)		NOT NULL,
-	id	varchar2(20)		NOT NULL
-);
-
-CREATE TABLE perchase_info (
-	perchase_num	number(10,0)		NOT NULL,
-	perchased_pname	varchar2(50)		NOT NULL,
-	amount	number(10,0)		NOT NULL,
-	product_price	number(10,0)		NOT NULL
-);
-
-CREATE TABLE delivery_info (
-	perchase_num	number(10,0)		NOT NULL,
-	name	varchar2(50)		NOT NULL,
-	address	varchar2(100)		NOT NULL,
-	phone	varchar2(50)		NOT NULL,
-	requests	varchar2(200)		NULL
-);
-
-CREATE TABLE animal_info (
-	board_num	number(10,0)		NOT NULL,
-	animal_name	varchar2(50)		NOT NULL,
-	enter_day	date	DEFAULT sysdate 	NOT NULL,
-	protect_day	date	DEFAULT sysdate 	NOT NULL,
-	variety	varchar2(50)		NOT NULL,
-	age	varchar2(50)		NOT NULL,
-	sex	varchar2(20)		NOT NULL,
-	tnr	varchar2(20)		NOT NULL,
-	identity	varchar2(500)		NOT NULL,
-	euthanasia_day	varchar2(50)		NOT NULL
-);
-
-CREATE TABLE animal_fileupload (
-	fno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-	board_num	number(10,0)		NOT NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE member (
-	id	varchar2(20)		NOT NULL,
-	password	varchar2(20)		NOT NULL,
-	name	varchar2(10)		NOT NULL,
-	staffs	varchar2(2)	DEFAULT 'n'	NOT NULL,
-	phone	varchar2(20)		NOT NULL,
-	birth	varchar2(20)		NOT NULL,
-	email	varchar2(50)		NOT NULL,
-	pass_question	number(2, 0)	DEFAULT 1	NULL,
-	pass_answer	varchar2(100)		NULL,
-	address	varchar2(100)		NOT NULL,
-	regdate	date	DEFAULT sysdate	NOT NULL,
-	alert_cnt	number(10, 0)		NULL,
-    member_num  	number(10,0)	NOT NULL,
-    kakao_email     varchar2(50) null
-);
-
-CREATE TABLE cart (
-	c_num	number(10,0)		NOT NULL,
-	quantity	number(10,0)		NOT NULL,
-	c_regdate	date	DEFAULT sysdate	NOT NULL,
-	id	varchar2(20)		NOT NULL,
-	product_num	number(10,0)		NOT NULL
-);
-
-CREATE TABLE used_items (
-   bno   number(10, 0)      NOT NULL,
-   title   varchar2(30)      NOT NULL,
-   content   varchar2(1000)      NOT NULL,
-   regdate   date   DEFAULT sysdate   NOT NULL,
-   updatedate   date   DEFAULT sysdate   NOT NULL,
-   reply_cnt   number(10, 0)      NOT NULL,
-   visit_cnt   number(10, 0)      NOT NULL,
-   field   varchar2(20)      NOT NULL,
-   id   varchar2(20)      NOT NULL,
-   deal varchar2(20)    null
-);
-
-CREATE TABLE used_items_reply (
-	rno	number(10,0)		NOT NULL,
-	reply	varchar2(500)		NOT NULL,
-	bno	number(10, 0)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	replydate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL
-);
-
-CREATE TABLE adoption_review (
-	bno	number(10,0)		NOT NULL,
-	title	varchar2(30)		NOT NULL,
-	content	varchar2(1000)		NOT NULL,
-	regdate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL,
-	reply_cnt	number(10,0)		NOT NULL,
-	visit_cnt	number(10,0)		NOT NULL,
-	id	varchar2(20)		NOT NULL
-);
-
-CREATE TABLE adoption_reply (
-	rno	number(10,0)		NOT NULL,
-	reply	varchar2(500)		NOT NULL,
-	bno	number(10,0)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	replydate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL
-);
-
-CREATE TABLE commu_fileupload (
-	fno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-	bno	number(10,0)		NOT NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE QNA_reply (
-	bno	number(10,0)		NOT NULL,
-	rno	number(10,0)		NOT NULL,
-	reply	varchar2(1000)		NOT NULL,
-	replydate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL,
-	id	varchar2(20)		NOT NULL
-);
-
-CREATE TABLE qna_fileupload (
-	fno	number(10,0)		NOT NULL,
-	bno	number(10,0)		NOT NULL,
-	filename	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE QNA (
-	bno	number(10,0)		NOT NULL,
-	title	varchar2(100)		NOT NULL,
-	content	varchar2(3000)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	regdate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL,
-	count	number(10,0)		NOT NULL,
-    replycnt number(10,0)  default 0  null 
-);
-
-CREATE TABLE notice (
-	bno	number(10,0)		NOT NULL,
-	title	varchar2(100)		NOT NULL,
-	content	varchar2(3000)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	regdate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL,
-	count	number(10,0)		NOT NULL
-);
-
-CREATE TABLE FAQ (
-	bno	number(10,0)		NOT NULL,
-	title	varchar2(100)		NOT NULL,
-	content	varchar2(3000)		NOT NULL,
-	id	varchar2(30)		NOT NULL,
-	regdate	date	DEFAULT sysdate	NOT NULL,
-	updatedate	date	DEFAULT sysdate	NOT NULL,
-	count	number(10,0)		NOT NULL
-);
-
-CREATE TABLE notice_fileupload (
-	fno	number(10,0)		NOT NULL,
-	bno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL, 
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE faq_fileupload (
-	fno	number(10,0)		NOT NULL,
-	bno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE used_item_file_upload (
-	fno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-	bno	number(10, 0)		NOT NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE anymore_fileupload (
-	fno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-	product_num	number(10,0)		NOT NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-
-CREATE TABLE adopt_fileupload (
-	fno	number(10,0)		NOT NULL,
-	fileName	varchar2(100)		NOT NULL,
-	uuid	varchar2(100)		NOT NULL,
-	uploaddate	date		NOT NULL,
-	file_size	number(20,0)		NULL,
-	bno	number(10,0)		NOT NULL,
-    uploadpath 	varchar2(200)		NOT NULL,
-	fileType	char(1)		NULL
-);
-```
